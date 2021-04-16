@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.songsenior.verifyedittext.VerifyEditText
+        android:id="@+id/vet1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:verify_count = "4"
+        android:layout_marginTop="@dimen/dp_30"
+        app:verify_inputType = "number"
+        app:verify_password = "true"
+        app:verify_width = "@dimen/dp_20"
+        app:verify_height = "@dimen/dp_20"
+        app:verify_textSize = "@dimen/sp_14"
+        app:verify_margin = "@dimen/dp_25"
+        app:verify_background_normal = "@drawable/shape_verify_edittext_default_bg"/>
+
+    <com.songsenior.verifyedittext.VerifyEditText
+        android:id="@+id/vet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        app:verify_count = "5"
+        app:verify_inputType = "text"
+        app:verify_textSize = "@dimen/sp_20"
+        app:verify_height = "@dimen/dp_30"
+        app:verify_margin = "@dimen/dp_15"
+        app:verify_background_normal = "@drawable/shape_bottom_line_normal"
+        app:verify_background_selected = "@drawable/shape_bottom_line_selected"/>
+
+
+    <com.songsenior.verifyedittext.VerifyEditText
+        android:id="@+id/vet3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        app:verify_count = "6"
+        app:verify_inputType = "number"
+        app:verify_textSize = "@dimen/sp_25"
+        app:verify_margin = "@dimen/dp_15"
+        app:verify_background_normal = "@drawable/shape_verify_edittext_default_bg2"/>
+
+
+
+</LinearLayout>
