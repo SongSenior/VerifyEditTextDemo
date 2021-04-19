@@ -46,11 +46,13 @@ public class VerifyEditText extends LinearLayout {
     private InputCompleteListener mInputCompleteListener;
 
     public VerifyEditText(Context context) {
-        this(context, null);
+        super(context);
+        init(context,null);
     }
 
     public VerifyEditText(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
+        init(context, attrs);
     }
 
     public VerifyEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -81,7 +83,7 @@ public class VerifyEditText extends LinearLayout {
 
         mEditText = new EditText(context);
         mEditText.setInputType(inputType);
-        mEditText.setLayoutParams(new LinearLayout.LayoutParams(0, 1));
+        mEditText.setLayoutParams(new LinearLayout.LayoutParams(1, 1));
         mEditText.setCursorVisible(false);
         mEditText.setBackground(null);
         mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(count)});//限制输入长度为1
@@ -132,12 +134,13 @@ public class VerifyEditText extends LinearLayout {
             textView.setTextColor(textColor);
             LayoutParams layoutParams = new LayoutParams(width, height == 0 ? ViewGroup.LayoutParams.WRAP_CONTENT : height);
             if (i == 0)
-                layoutParams.leftMargin = 0;
+                layoutParams.leftMargin =-1;
             else
                 layoutParams.leftMargin = margin;
             textView.setLayoutParams(layoutParams);
             setTextViewBackground(textView, drawableNormal);
             addView(textView);
+            textView.clearFocus();
             mTextViewList.add(textView);
         }
     }
@@ -210,8 +213,11 @@ public class VerifyEditText extends LinearLayout {
      * 显示软键盘
      */
     private void showSoftKeyBoard() {
+        mEditText.setFocusable(true);
+        mEditText.setFocusableInTouchMode(true);
+        mEditText.requestFocus();
         InputMethodManager imm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(mEditText, InputMethodManager.SHOW_FORCED);
+        imm.showSoftInput(mEditText, InputMethodManager.SHOW_IMPLICIT);
     }
 
     /**
